@@ -1,1 +1,1 @@
-Scrapes <a href="">http://recidivism.cityofnewyork.us/index.php?m=search</a>.
+Scrapes NYC's data analytic recidivism tool (http://recidivism.cityofnewyork.us/index.php?m=search). Instance is up at https://dartmine.herokuapp.com/
