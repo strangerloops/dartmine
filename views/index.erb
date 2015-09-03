@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<div id="header">
+			<%= erb :header %>
+		</div>
+		<title>Dartmine</title>
+	</head>
+	<body>
+		<div class="static-page">
+			<div id="inputs">
+				<form action="/produce_csv" method="GET">
+					<% @c_b_hash.each_key do |key| %>
+						<h2><%= key %></h2>
+						<input type="text" name="<%= key %>">
+					<% end %>
+					<br>
+					<input type="submit">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

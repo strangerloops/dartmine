@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<div id="header">
+			<%= erb :header %>
+		</div>
+		<title>Using Dartmine</title>
+	</head>
+	<body>
+		<div class="static-page">
+			<div class="copy">
+				<div>
+					Dartmine automates the collection of data en masse from New York City's <a href="http://recidivism.cityofnewyork.us/index.php?m=search">Data Analytic Recidivism Tool</a>.<p>
+				</div>
+				<div>
+					Dartmine works by cycling through each possible selection of one checkbox or group of checkboxes from a set you define. To run the program, you must specify the checkboxes you want to iterate over for each category. You do this by typing the indexes of the checkboxes each surrounded by {curly braces}. You can also put several indexes, separated by spaces, in one set of curly braces if you want a set of checkboxes to be checked and unchecked together. Indexes start at 0 and increase going left to right and then top to bottom. If you don't want to filter by any of a category's characteristics, leave its textbox blank. <b>(See Examples below for a sense of how this works.)</b>
+				</div><p>
+				<div>
+					'Choose specific charges' doesn't work yet - please use 'Choose Charge Severity and Arrest Type' instead for the time being.	
+				</div><p>
+				<div>
+					After clicking submit, Dartmine will generate your results in CSV format. Above the CSV output you'll also see a legend mapping the numbers in the first column to the categories they represent. It may take a little while depending on the speed of your internet connection and the number of combinations you chose.
+				</div><p>
+				<div>
+					Don't hesitate to <a href="mailto:hassinmichael@gmail.com">contact me</a> for help if the interface or output are unclear! :)
+				</div><p>
+				<div>
+					***** Examples: ******
+				</div><p>
+				<div>
+					To compare recidivism rates for offenders in each of the six age categories, type <a href="/produce_csv?Age=%7B0%7D%7B1%7D%7B2%7D%7B3%7D%7B4%7D%7B5%7D&Gender=&Prior+convictions=&Open+or+pending=&Recommended+for+release=&Case+info+-+charge+severity=&Case+info+-+arrest+type=&Borough+of+arrest=&Desk+appearance+given+by+police=&Release+outcome+at+arraignment=&Disposition+of+case=&Sentence+imposed=">{0}{1}{2}{3}{4}{5}</a> for 'Age'.
+				</div>
+				<div>
+					To compare recidivism rates for 16-30 year olds and 31+ year olds, type <a href="/produce_csv?Age=%7B0+1+2%7D%7B3+4+5%7D&Gender=&Prior+convictions=&Open+or+pending=&Recommended+for+release=&Case+info+-+charge+severity=&Case+info+-+arrest+type=&Borough+of+arrest=&Desk+appearance+given+by+police=&Release+outcome+at+arraignment=&Disposition+of+case=&Sentence+imposed=">{0 1 2}{3 4 5}</a> for 'Age.'
+				</div>
+				<div>
+					To compare recidivism rates for 20-24 year old males and females, type <a href="/produce_csv?Age=%7B1%7D&Gender=%7B0%7D%7B1%7D&Prior+convictions=&Open+or+pending=&Recommended+for+release=&Case+info+-+charge+severity=&Case+info+-+arrest+type=&Borough+of+arrest=&Desk+appearance+given+by+police=&Release+outcome+at+arraignment=&Disposition+of+case=&Sentence+imposed=">{1} for 'Age' and {0}{1} for 'Gender'</a>.
+				</div>
+				<div>
+					To compare recidivism rates for offenders with no prior convictions to those with any kind of convictions and ignore those with unavailable criminal history information, type <a href="/produce_csv?Age=&Gender=&Prior+convictions=%7B0%7D%7B1+2+3%7D&Open+or+pending=&Recommended+for+release=&Case+info+-+charge+severity=&Case+info+-+arrest+type=&Borough+of+arrest=&Desk+appearance+given+by+police=&Release+outcome+at+arraignment=&Disposition+of+case=&Sentence+imposed=">{0}{1 2 3}</a> for 'Prior convictions'.
+				</div>
+				<div>
+					To compare recidivism rates for drug crimes to all other charges, type <a href="/produce_csv?Age=&Gender=&Prior+convictions=&Open+or+pending=&Recommended+for+release=&Case+info+-+charge+severity=&Case+info+-+arrest+type=%7B0%7D%7B1+2+3+4+5+6+7+8+9+10%7D&Borough+of+arrest=&Desk+appearance+given+by+police=&Release+outcome+at+arraignment=&Disposition+of+case=&Sentence+imposed=">{0}{1 2 3 4 5 6 7 8 9 10}</a> for 'Case info - arrest type'.
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
